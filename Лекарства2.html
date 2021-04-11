@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="style.css"><form>
+    <div id="search">
+        <script type="text/javascript">
+            var lastResFind="";
+            var copy_page=""; 
+            function TrimStr(s) {
+                 s = s.replace( /^\s+/g, '');
+              return s.replace( /\s+$/g, '');
+            }
+            function FindOnPage(inputId) {
+              var obj = window.document.getElementById(inputId);
+              var textToFind;
+              
+              if (obj) {
+                textToFind = TrimStr(obj.value);
+              } else {
+                alert("Введенная фраза не найдена");
+                return;
+              }
+              if (textToFind == "") {
+                alert("Вы ничего не ввели");
+                return;
+              }
+               
+              if(document.body.innerHTML.indexOf(textToFind)=="-1")
+              alert("Ничего не найдено, проверьте правильность ввода!");
+               
+              if(copy_page.length>0)
+                    document.body.innerHTML=copy_page;
+              else copy_page=document.body.innerHTML;
+             
+               
+              document.body.innerHTML = document.body.innerHTML.replace(eval("/name="+lastResFind+"/gi")," ");
+              document.body.innerHTML = document.body.innerHTML.replace(eval("/"+textToFind+"/gi"),"<a name="+textToFind+" style='background-color:#fff891; color: grey;'>"+textToFind+"</a>");
+              lastResFind=textToFind;
+              window.location = '#'+textToFind;
+             } 
+            </script>
+        <input type="button" class="btsearch" onclick="javascript: FindOnPage('text-to-find'); return false;" value="Искать"/>
+        <input type="text" id="text-to-find" autocomplete="off" class="search1" placeholder="Поиск по лекарствам">
+    </div>
+</form>
+<span class="name1">
+<ol>
+<li> Гидрокортизон * - крем; мазь<br>
+<li> Гидрохлоротиазид - капсулы; таблетки<br>
+<li>Дексаметазон - капли; мазь<br>
+<li>Диклофенак * - таблетки; гель; крем; суппозитории; капли<br>
+<li>Доксициклин - капсулы; таблетки<br>
+<li>Дротаверин * - таблетки<br>
+<li>Занамивир - порошок для ингаляций дозированный<br>
+<li>Ибупрофен * - капсулы; суспензия; таблетки<br>
+<li>Изосорбид мононитрат - капсулы; спрей; таблетки<br>
+<li>Изосорбида динитрат - капсулы; таблетки<br>
+<li>Ингавирин - капсулы<br>
+<li>Интерферон альфа-2 * - гель; капли; лиофилизат для приготовления суспензии для приема внутрь; лиофилизат для приготовления раствора для интраназального введения; мазь; суппозитории<br>
+<li>Интерферон гамма * - лиофилизат для приготовления раствора для интраназального введения<br>
+<li>Йод + [Калия йодид + Этанол] * - раствор для наружного применения спиртовой<br>
+<li>Кагоцел * - таблетки<br>
+<li> Каптоприл - таблетки<br>
+<li>Клотримазол * - гель; крем; мазь; таблетки<br>
+<li>Ко-тримоксазол - суспензия; таблетки<br>
+<li>Лоперамид * - капсулы; таблетки<br>
+<li> Лоратадин * сироп; таблетки<br>
+<li> Левоментола раствор в ментил изовалерате * - таблетки<br>
+<li> Метоклопрамид - таблетки<br>
+<li> Мяты перечной масло + Фенобарбитал + Этилбромизовалеринат * - капли<br>
+<li>Нафазолин * - капли<br>
+<li>Нитроглицерин * - спрей; таблетки<br>
+<li>Нифедипин - капсулы; таблетки<br>
+<li> Омепразол - капсулы; таблетки<br>
+<li> Осельтамивир - капсулы; порошок для приготовления суспензии для приема внутрь<br>
+<li> Панкреатин * - капсулы; таблетки<br>
+</span></ol>
